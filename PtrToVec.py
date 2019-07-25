@@ -59,18 +59,19 @@ opt_points = OptiPoints(coord_list, 3)
 opt_points.optimizing(0)
 cor_points = CorNodeList(opt_points.getArray())
 cor_points.remaining_wall()
-print(cor_points.getArray())
 
-'''
+screen = draw_map.Screen(_width= SCREEN_WIDTH, _height= SCREEN_HEIGHT,
+                          _bias_list=bias_list, _scale_size=SCALE_SIZE)
+
 cvlist = CVector2DList(cor_points)
-cvlist.CorToVec()
-'''
+cvlist.CorToVec(screen)
+
 print("Total Algorithms time :", (time.time() - start_algo_time) * 1000, "ms.")
 
 '''
 DRAWING CODES
 '''
-
+'''
 start_draw_time = time.time()
 
 POINT_SIZE = bias_list[2][1]+0.5
@@ -83,7 +84,8 @@ screen1.draw_non_opt_points(raw_points, POINT_SIZE)
 screen2.draw_opt_points(cor_points.getNodes(), POINT_SIZE)
 
 print("Total Drawing time :", (time.time() - start_draw_time) * 1000, "ms.")
-
+'''
 print("Total Running time :", (time.time() - start_run_time) * 1000, "ms.")
 
-screen1.mainloop()
+
+screen.mainloop()

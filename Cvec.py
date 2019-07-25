@@ -1,5 +1,6 @@
 from math import cos, sin, pi
-
+from draw_map import *
+from random import randint as r
 
 class OptiPoints:
     def __init__(self, _list, _coordsnum):
@@ -69,8 +70,7 @@ class CorNodeList:
         self.cornodelist = list()
         self.classify_points_to_cornodes(_points)
         self.sorting()
-        for y in self.cornodelist :
-            print(y(), y.getXList())
+        #for y in self.cornodelist : print(y(), y.getXList())
 
     # sort by y, default : ascending
     def sorting(self, _reverse=False):
@@ -172,13 +172,13 @@ class CVector2DList:
         self.veclist = list()
         self.grid = 1
 
-    def CorToVec(self):
+    def CorToVec(self, screen):
         print("\n------------- start convert to vector ------------\n")
 
         # [ y, x ]
         # get appropriated start point
         cor = None
-        dir = [1, 0]
+        dir = [0, -1]
         vecinx = 0
         for i in range(len(self.corlist)):
             cor = self.corlist[i]
@@ -188,35 +188,53 @@ class CVector2DList:
                 self.veclist.append(cor + cor)
                 break
         dir = self.nextPath(self.veclist[vecinx][2:4], dir)
-        print(self.corlist)
         print("we start coordinates :", cor)
         print("we start direction :", dir)
 
         # on going algorithms
-        while True:
+        while True :
             newdir = self.nextPath(self.veclist[vecinx][2:4], dir)
             if newdir == dir:
-                print("same direction.", dir, newdir)
+                #print("same direction.", "last dir :", dir, "new dir", newdir)
                 self.veclist[vecinx][2] += newdir[0]
                 self.veclist[vecinx][3] += newdir[1]
             else:
-                print("create vector.", dir, newdir)
+                #print("create vector.", "last dir :", dir, "new dir", newdir)
+                self.veclist.append(self.veclist[vecinx][2:4]*2)
+                vecinx += 1
+                self.veclist[vecinx][2] += newdir[0]
+                self.veclist[vecinx][3] += newdir[1]
                 dir = newdir
+
+            # stop condition
+            # print("Stop Condition : veclist -", self.veclist[vecinx][2:4], ", cor -", cor)
+            if self.veclist[vecinx][2:4] == cor :
                 break
 
-        print("vectorlist result :", self.veclist)
+        # show!!!!!!!!!!!!!
+        for vec in self.veclist :
+            screen.drawline(vec[0], vec[1], vec[2], vec[3])
+        screen.update()
+
+        print("* Result     Vector Num :", len(self.veclist)) #", Vector List :", self.veclist)
 
         print("\n------------- end convert to vector ------------\n")
 
     def nextPath(self, cur, nextdir):
+        #print("Receive Direction :", nextdir)
+        nextdir = self.getfirstdir(nextdir[0], nextdir[1])
+        #print("First Direction :", nextdir)
         for i in range(3):
-            if self.cornodelist.findindexcornode([cur[0] + nextdir[0], cur[1] + nextdir[1]]) < 0:
-                print("we can't found", [cur[0] + nextdir[0], cur[1] + nextdir[1]])
-                nextdir = self.getnextdir(nextdir[0], nextdir[1])
-            else:
-                print([cur[0] + nextdir[0], cur[1] + nextdir[1]], "is there.")
+            if self.cornodelist.have(cur[0] + nextdir[0], cur[1] + nextdir[1]) :
+                #print([cur[0] + nextdir[0], cur[1] + nextdir[1]], "is there.")
                 return nextdir
-        return False
+            else:
+                #print("we can't found", [cur[0] + nextdir[0], cur[1] + nextdir[1]])
+                #print("we change direction", nextdir, "to", self.getnextdir(nextdir[0], nextdir[1]))
+                nextdir = self.getnextdir(nextdir[0], nextdir[1])
+        #print("we don't found point to right go... so just random!")
+        for i in range(r(0,3)) : nextdir = self.getnextdir(nextdir[0], nextdir[1])
+        return nextdir
 
     # see right
     def getfirstdir(self, y, x):
