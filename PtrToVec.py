@@ -21,7 +21,7 @@ bias_list = [[FLOAT_MIN, FLOAT_MAX],[FLOAT_MIN, FLOAT_MAX],[FLOAT_MIN, FLOAT_MAX
 
 # open file
 #filename = input("Enter the file name : ")
-filename = '0.3M_voxel.pcd'
+filename = '0.3M_voxel2.pcd'
 fd = open(filename)
 
 # read cloud format data
@@ -62,11 +62,23 @@ cor_points.remaining_wall()
 
 screen = draw_map.Screen(_width= SCREEN_WIDTH, _height= SCREEN_HEIGHT,
                           _bias_list=bias_list, _scale_size=SCALE_SIZE)
-
 cvlist = CVector2DList(cor_points)
 cvlist.CorToVec(screen)
 
 print("Total Algorithms time :", (time.time() - start_algo_time) * 1000, "ms.")
+
+'''
+SAVE TO FILE
+'''
+veclist = cvlist.getArrayBias()
+
+wf = open("result.txt", 'w')
+for vec in veclist :
+    wf.write(",".join(format(s, "f") for s in vec))
+    wf.write("\n")
+wf.close()
+
+
 
 '''
 DRAWING CODES
@@ -84,8 +96,7 @@ screen1.draw_non_opt_points(raw_points, POINT_SIZE)
 screen2.draw_opt_points(cor_points.getNodes(), POINT_SIZE)
 
 print("Total Drawing time :", (time.time() - start_draw_time) * 1000, "ms.")
-'''
 print("Total Running time :", (time.time() - start_run_time) * 1000, "ms.")
 
-
+'''
 screen.mainloop()

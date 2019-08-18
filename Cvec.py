@@ -254,3 +254,14 @@ class CVector2DList:
 
     def getArray(self):
         return self.veclist
+
+    def getArrayBias(self):
+        arr = list(map(list, zip(*self.getArray())))
+        barr = list()
+        bias_list = list()
+        for i in range(len(arr)) :
+            bias_list.append((max(arr[i]), min(arr[i])))
+            bvalue = abs(bias_list[i][0]) if abs(bias_list[i][0]) > abs(bias_list[i][1]) else abs(bias_list[i][1])
+            barr.append(list(map(lambda n : float(n/bvalue), arr[i])))
+        return list(map(list, zip(*barr)))
+
