@@ -1,8 +1,8 @@
 import time
-import draw_map
+from dtools import draw_map
 import sys
 import copy
-from Cvec import OptiPoints, CorNodeList, CVector2DList
+from structures.Cvec import OptiPoints, CorNodeList, CVector2DList
 
 start_run_time = time.time()
 
@@ -21,7 +21,7 @@ bias_list = [[FLOAT_MIN, FLOAT_MAX],[FLOAT_MIN, FLOAT_MAX],[FLOAT_MIN, FLOAT_MAX
 
 # open file
 #filename = input("Enter the file name : ")
-filename = '0.3M_voxel2.pcd'
+filename = './pcds/0.3M_voxel2.pcd'
 fd = open(filename)
 
 # read cloud format data
@@ -61,7 +61,7 @@ cor_points = CorNodeList(opt_points.getArray())
 cor_points.remaining_wall()
 
 screen = draw_map.Screen(_width= SCREEN_WIDTH, _height= SCREEN_HEIGHT,
-                          _bias_list=bias_list, _scale_size=SCALE_SIZE)
+                         _bias_list=bias_list, _scale_size=SCALE_SIZE)
 cvlist = CVector2DList(cor_points)
 cvlist.CorToVec(screen)
 
