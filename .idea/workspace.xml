@@ -2,27 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9980ceaf-1de3-4299-8d07-a27a6efcff51" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/dtools/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/paths/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pcds/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/structures/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/structures/lists/CVector2DList.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/structures/lists/CorNodeList.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/structures/lists/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/structures/nodes/CPoints.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/structures/nodes/CVectors.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/structures/nodes/CorNode.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/structures/nodes/OptiPoints.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/structures/nodes/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0.3M_voxel.pcd" beforeDir="false" afterPath="$PROJECT_DIR$/pcds/0.3M_voxel.pcd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/0.3M_voxel2.pcd" beforeDir="false" afterPath="$PROJECT_DIR$/pcds/0.3M_voxel2.pcd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/2.0M_voxel.pcd" beforeDir="false" afterPath="$PROJECT_DIR$/pcds/2.0M_voxel.pcd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Cvec.py" beforeDir="false" afterPath="$PROJECT_DIR$/structures/Cvec.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PtrToVec.py" beforeDir="false" afterPath="$PROJECT_DIR$/PcdToVectormap.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/draw_map.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/path.txt" beforeDir="false" afterPath="$PROJECT_DIR$/paths/path.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/result.txt" beforeDir="false" afterPath="$PROJECT_DIR$/result.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PcdToVectormap.py" beforeDir="false" afterPath="$PROJECT_DIR$/PcdToVectormap.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/structures/Cvec.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/structures/lists/CVector2DList.py" beforeDir="false" afterPath="$PROJECT_DIR$/structures/lists/CVector2DList.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/structures/lists/CorNodeList.py" beforeDir="false" afterPath="$PROJECT_DIR$/structures/lists/CorNodeList.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/structures/nodes/CPoints.py" beforeDir="false" afterPath="$PROJECT_DIR$/structures/nodes/CPoints.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/structures/nodes/CVectors.py" beforeDir="false" afterPath="$PROJECT_DIR$/structures/nodes/CVectors.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/structures/nodes/OptiPoints.py" beforeDir="false" afterPath="$PROJECT_DIR$/structures/lists/OptiPointList.py" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,7 +20,7 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/pointtovector$draw_map.coverage" NAME="draw_map Coverage Results" MODIFIED="1562930368922" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/pointtovector$PcdToVectormap.coverage" NAME="PcdToVectormap Coverage Results" MODIFIED="1566142481236" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/pointtovector$PcdToVectormap.coverage" NAME="PcdToVectormap Coverage Results" MODIFIED="1566350498829" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/pointtovector$PtrToVec.coverage" NAME="PtrToVec Coverage Results" MODIFIED="1566142458044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
@@ -41,8 +28,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PcdToVectormap.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="26" column="24" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
+            <state relative-caret-position="149">
+              <caret line="60" column="23" selection-start-line="60" selection-start-column="23" selection-end-line="60" selection-end-column="23" />
               <folding>
                 <element signature="e#0#11#0" expanded="true" />
               </folding>
@@ -50,14 +37,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/structures/Cvec.py">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/structures/lists/OptiPointList.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="2" selection-start-line="2" selection-end-line="2" />
-              <folding>
-                <element signature="e#0#29#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="190">
+              <caret line="19" column="72" selection-start-line="19" selection-start-column="72" selection-end-line="19" selection-end-column="72" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/structures/lists/CorNodeList.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-132">
+              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/structures/nodes/CorNode.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="352">
+              <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
             </state>
           </provider>
         </entry>
@@ -65,44 +67,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/structures/lists/CVector2DList.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1881">
-              <caret line="99" column="42" selection-start-line="99" selection-start-column="42" selection-end-line="99" selection-end-column="42" />
+            <state relative-caret-position="-1357">
+              <caret column="7" selection-start-column="7" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/structures/nodes/CPoints.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
-            </state>
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/structures/nodes/CVectors.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/structures/nodes/CorNode.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="4" column="27" lean-forward="true" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/structures/nodes/OptiPoints.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
+            <state>
+              <caret column="29" selection-start-column="29" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -110,15 +90,6 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/structures/nodes/__init__.py">
           <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/structures/lists/CorNodeList.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="14" selection-start-column="14" selection-end-column="14" />
-            </state>
-          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -149,6 +120,8 @@
       <find>index(y, x</find>
       <find>print</find>
       <find>random</find>
+      <find>CVe</find>
+      <find>CPoi</find>
     </findStrings>
     <replaceStrings>
       <replace>:</replace>
@@ -163,16 +136,19 @@
         <option value="$PROJECT_DIR$/draw_map.py" />
         <option value="$PROJECT_DIR$/PtrToVec.py" />
         <option value="$PROJECT_DIR$/Cvec.py" />
-        <option value="$PROJECT_DIR$/PcdToVectormap.py" />
         <option value="$PROJECT_DIR$/structures/nodes/OptiPoints.py" />
         <option value="$PROJECT_DIR$/structures/nodes/CorNode.java" />
-        <option value="$PROJECT_DIR$/structures/nodes/CorNode.py" />
         <option value="$PROJECT_DIR$/structures/lists/CPoints.py" />
         <option value="$PROJECT_DIR$/structures/lists/CVectors.py" />
-        <option value="$PROJECT_DIR$/structures/lists/CVector2DList.py" />
         <option value="$PROJECT_DIR$/structures/Cvec.py" />
         <option value="$PROJECT_DIR$/structures/lists/__init__.py" />
+        <option value="$PROJECT_DIR$/structures/nodes/CorNode.py" />
         <option value="$PROJECT_DIR$/structures/lists/CorNodeList.py" />
+        <option value="$PROJECT_DIR$/structures/nodes/CVectors.py" />
+        <option value="$PROJECT_DIR$/structures/nodes/CPoints.py" />
+        <option value="$PROJECT_DIR$/structures/lists/CVector2DList.py" />
+        <option value="$PROJECT_DIR$/PcdToVectormap.py" />
+        <option value="$PROJECT_DIR$/structures/lists/OptiPointList.py" />
       </list>
     </option>
   </component>
@@ -255,16 +231,16 @@
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\taep0\AppData\Roaming\SPB_Data\pointtovector" />
+      <recent name="C:\pointtovector" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\taep0\AppData\Roaming\SPB_Data\pointtovector\structures\lists" />
       <recent name="C:\Users\taep0\AppData\Roaming\SPB_Data\pointtovector\structures\nodes" />
       <recent name="C:\Users\taep0\AppData\Roaming\SPB_Data\pointtovector\paths" />
       <recent name="C:\Users\taep0\AppData\Roaming\SPB_Data\pointtovector\pcds" />
       <recent name="C:\Users\taep0\AppData\Roaming\SPB_Data\pointtovector\dtools" />
-      <recent name="C:\Users\taep0\AppData\Roaming\SPB_Data\pointtovector\structures" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\taep0\AppData\Roaming\SPB_Data\pointtovector" />
-      <recent name="C:\pointtovector" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -361,14 +337,14 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20939597" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20939597" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" x="780" y="554" width="4075" height="1125" id="Run" order="2" weight="0.20992908" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32765958" />
+      <window_info active="true" anchor="bottom" x="780" y="554" width="4075" height="1125" id="Run" order="2" visible="true" weight="0.3035461" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39943343" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -467,54 +443,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/structures/nodes/CorNode.java" />
-    <entry file="file://$PROJECT_DIR$/PcdToVectormap.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="26" column="24" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/structures/Cvec.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/structures/lists/CVector2DList.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1881">
-          <caret line="99" column="42" selection-start-line="99" selection-start-column="42" selection-end-line="99" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/structures/nodes/CPoints.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/structures/nodes/CVectors.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/structures/nodes/OptiPoints.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="25" column="26" selection-start-line="25" selection-start-column="26" selection-end-line="25" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/structures/nodes/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -525,17 +453,61 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/structures/lists/CorNodeList.py">
+    <entry file="file://$PROJECT_DIR$/structures/Cvec.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/structures/nodes/CVectors.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="14" selection-start-column="14" selection-end-column="14" />
+          <caret column="29" selection-start-column="29" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/structures/nodes/CPoints.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/structures/lists/CVector2DList.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1357">
+          <caret column="7" selection-start-column="7" selection-end-column="7" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/structures/nodes/CorNode.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="27" lean-forward="true" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="27" />
+        <state relative-caret-position="352">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PcdToVectormap.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="60" column="23" selection-start-line="60" selection-start-column="23" selection-end-line="60" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/structures/lists/CorNodeList.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-132">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/structures/lists/OptiPointList.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="19" column="72" selection-start-line="19" selection-start-column="72" selection-end-line="19" selection-end-column="72" />
         </state>
       </provider>
     </entry>

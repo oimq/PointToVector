@@ -1,3 +1,5 @@
+from math import cos, sin, pi
+
 class CVector2D:
     def __init__(self, cp, mg, th):
         self.p = cp

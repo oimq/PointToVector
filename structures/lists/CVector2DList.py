@@ -1,3 +1,5 @@
+from random import randint as r
+
 class CVector2DList:
     def __init__(self, cornodelist):
         self.cornodelist = cornodelist
@@ -59,7 +61,7 @@ class CVector2DList:
         nextdir = self.getfirstdir(nextdir[0], nextdir[1])
         #print("First Direction :", nextdir)
         for i in range(3):
-            if self.cornodelist.have(cur[0] + nextdir[0], cur[1] + nextdir[1]) :
+            if self.cornodelist.ishave(cur[0] + nextdir[0], cur[1] + nextdir[1]) :
                 #print([cur[0] + nextdir[0], cur[1] + nextdir[1]], "is there.")
                 return nextdir
             else:

@@ -2,7 +2,9 @@ import time
 from dtools import draw_map
 import sys
 import copy
-from structures.Cvec import OptiPoints, CorNodeList, CVector2DList
+from structures.lists.CorNodeList import CorNodeList
+from structures.lists.CVector2DList import CVector2DList
+from structures.lists.OptiPointList import OptiPointList
 
 start_run_time = time.time()
 
@@ -55,8 +57,8 @@ convert point to vector algorithms
 GRID OUTER DETECTION 
 '''
 #
-opt_points = OptiPoints(coord_list, 3)
-opt_points.optimizing(0)
+opt_points = OptiPointList(coord_list, 3)
+opt_points.optimizing()
 cor_points = CorNodeList(opt_points.getArray())
 cor_points.remaining_wall()
 

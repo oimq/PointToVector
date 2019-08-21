@@ -1,71 +1,81 @@
-import CorNode
+from ..nodes.CorNode import CorNode
+
 
 class CorNodeList:
     def __init__(self, _points):
-        self.cornodelist = list()
-        self.classify_points_to_cornodes(_points)
+        self.cnlist = list()
+        self.convert_points_to_cornodes(_points)
         self.sorting()
-        #for y in self.cornodelist : print(y(), y.getXList())
+        # for y in self.cornodelist : print(y(), y.getXList())
 
     # sort by y, default : ascending
     def sorting(self, _reverse=False):
-        self.cornodelist = sorted(self.cornodelist, key=lambda c: c(), reverse=_reverse)
+        self.cnlist = sorted(self.cnlist, key=lambda c: c(), reverse=_reverse)
 
     # return to list [y, x]
     def getArray(self):
-        return [(y(), x) for y in self.cornodelist for x in y.getXList()]
+        return [(y(), x) for y in self.cnlist for x in y.getXList()]
 
     def getNodes(self):
-        return self.cornodelist
+        return self.cnlist
 
     # crtn -> x: 0, y: 1
-    def classify_points_to_cornodes(self, points, crtn=1):
+    def convert_points_to_cornodes(self, points, crtn=1):
         for point in points:
             index = self.index(point[1])
             if index == -1:
-                self.cornodelist.append(CorNode(point[crtn]))
-            self.cornodelist[index].add(point[1 - crtn])
+                self.cnlist.append(CorNode(point[crtn]))
+            self.cnlist[index].add(point[1 - crtn])
 
     # found: index, couldn't found: -1
     def index(self, _y):
-        for cinx in range(len(self.cornodelist)):
-            if self.cornodelist[cinx].isY(_y):
+        for cinx in range(len(self.cnlist)):
+            if self.cnlist[cinx].isY(_y):
                 return cinx
         else:
             return -1
 
-    def have(self, _y, _x):
+    # found the index -> if none, return False immediatly, else isX results.
+    def ishave(self, _y, _x):
         cinx = self.index(_y)
-        if cinx < 0 : return False
-        else : return self.cornodelist[cinx].isX(_x)
+        if cinx < 0:
+            return False
+        else:
+            return self.cnlist[cinx].isX(_x)
 
     def get_surround_num(self, _y, _x):
         count = 0
         for y in range(int(_y - 1), int(_y + 2), 1):
             for x in range(int(_x - 1), int(_x + 2), 1):
-                if self.have(y, x) > 0:
+                if self.ishave(y, x) > 0:
                     count += 1
-        return count
+        return count - 1
 
-    # delete point in cornodelist
-    def delete_point(self, delete_list):
-        for y, x in delete_list:
+    # delete points in delete-list : [(y, x) ...]
+    def delete_point(self, dlist):
+        for y, x in dlist:
             inx = self.index(y)
             if inx < 0: continue
-            self.cornodelist[inx].remove(x)
-            if self.cornodelist[inx].getXNum() == 0:
-                del (self.cornodelist[inx])
+            self.cnlist[inx].remove(x)
+            if self.cnlist[inx].getXNum() == 0: del (self.cnlist[inx])
 
+    ## OPTIMATIONS
     # delete vector we can never draw
     def remaining_wall(self):
         delete_list = list()
-        node_index = 0
-        while node_index < len(self.cornodelist):
-            y = self.cornodelist[node_index]()
-            xlist = self.cornodelist[node_index].getXList()
-            for x in xlist:
+        for node in self.cnlist :
+            y = node()
+            for x in node.getXList() :
                 num = self.get_surround_num(y, x)
-                if num >= 9 or num <= 2:
-                    delete_list.append((y, x))
-            node_index += 1
+                if 8 <= num or num <= 1 :delete_list.append((y, x))
         self.delete_point(delete_list)
+
+        # while ninx < len(self.cnlist):
+        #     y = self.cnlist[ninx]()
+        #     xlist = self.cnlist[ninx].getXList()
+        #     for x in xlist:
+        #         num = self.get_surround_num(y, x)
+        #         if num >= 9 or num <= 2:
+        #             delete_list.append((y, x))
+        #     ninx += 1
+        # self.delete_point(delete_list)

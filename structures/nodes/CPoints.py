@@ -1,5 +1,3 @@
-
-
 class CPoint2D:
     def __init__(self):
         self.cor = [0, 0]
