@@ -25,7 +25,7 @@ start_run_time = time.time()
 -- Convert from file to point array
 '''
 points1, bias_list1 = convert("./pcds/asciiopt.txt", axisnum=DIMENSION, separator=",")
-points2, bias_list2 = convert("./pcds/pathopt.txt", axisnum=DIMENSION, separator=",")
+points2, bias_list2 = convert("./paths/pathopt.txt", axisnum=DIMENSION, separator=",")
 #raw_points = copy.deepcopy(points1)
 
 ''' 
