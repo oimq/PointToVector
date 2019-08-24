@@ -26,9 +26,8 @@ class Screen:
     def mainloop(self):
         self.screen.mainloop()
 
-    def drawPoint(self, x, y, psize):
-        self.points.append(self.canvas.create_oval(x, y, x + psize, y + psize,
-                                                   fill="blue", outline=""))
+    def drawPoint(self, x, y, psize, color):
+        self.points.append(self.canvas.create_oval(x, y, x + psize, y + psize, fill=color, outline=""))
 
     def drawline(self, y1, x1, y2, x2):
         colours = ["black", "cyan", "magenta", "red", "blue", "gray", "yellow", "purple"]
@@ -48,19 +47,21 @@ class Screen:
             del (self.points[0])
 
 
-    def draw_non_opt_points(self, points, point_size):
+    def draw_non_opt_points(self, points, point_size, color="blue"):
         for coords in points:
             self.drawPoint(
                 (coords[0] + abs(self.bias_list[0][1])) * self.scale_size,
                 (coords[1] + abs(self.bias_list[1][1])) * self.scale_size,
-                (coords[2] + point_size))
+                (coords[2] + point_size),
+                color=color)
 
 
-    def draw_opt_points(self, points, point_size):
+    def draw_opt_points(self, points, point_size, color="blue"):
         for cornode in points:
             axislist = cornode.getXList()
             for x in axislist:
                 self.drawPoint(
                     (x + abs(self.bias_list[0][1])) * self.scale_size,
                     (cornode() + abs(self.bias_list[1][1])) * self.scale_size,
-                    (point_size))
+                    (point_size),
+                    color=color)
