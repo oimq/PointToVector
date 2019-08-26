@@ -93,6 +93,7 @@ class CVector2DList:
 
     def getArrayBias(self):
         arr = list(map(list, zip(*self.getArray())))
+        print(arr)
         barr = list()
         bias_list = list()
         for i in range(len(arr)) :

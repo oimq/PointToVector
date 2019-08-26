@@ -4,7 +4,7 @@ import copy
 from structures.lists.CorNodeList import CorNodeList
 from structures.lists.CVector2DList import CVector2DList
 from structures.lists.OptiPointList import OptiPointList
-from dtools.manipulate_pcd import convert, savefromarray
+from dtools.manipulate_pcd import *
 from dtools.ogm import get_ogm
 
 SCREEN_WIDTH = 1200
@@ -49,17 +49,15 @@ save(get_ogm(cor_points), filename="path.txt")
 '''
 -- GETTING vectormap
 '''
-"""
-cvlist = CVector2DList(cor_points)
-cvlist.CorToVec(screen)
-"""
+cvlist = CVector2DList(cor_points1)
+
 
 '''
 -- SAVE TO FILE
 '''
-'''
-'''
-
+savefromarraywithbias(cor_points1.getArray(), "map1.txt", bias_list1)
+savefromarraywithbias(cor_points2.getArray(), "path1.txt", bias_list1)
+# savefromarray(cor_points2.getArray(), "path2.txt")
 '''
 -- DRAWING CODES
 '''
@@ -76,6 +74,10 @@ screen = draw_map.Screen(_width= SCREEN_WIDTH, _height= SCREEN_HEIGHT,
 # screen1.draw_non_opt_points(raw_points, POINT_SIZE)
 screen.draw_opt_points(cor_points1.getNodes(), POINT_SIZE, color="black")
 screen.draw_opt_points(cor_points2.getNodes(), POINT_SIZE, color="red")
+
+cvlist.CorToVec(screen)
+print(cvlist.getArray())
+savefromvector(cvlist.getArray(), "vecmap", bias_list1)
 
 print("Total Drawing time :", (time.time() - start_draw_time) * 1000, "ms.")
 print("Total Running time :", (time.time() - start_run_time) * 1000, "ms.")

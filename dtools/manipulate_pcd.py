@@ -58,12 +58,29 @@ def savefromarray(array, filename="result.txt"):
     for n in array: wf.write(",".join([format(s, "f") for s in n]) + "\n")
     wf.close()
 
-def savefromvector(vectors, filename="result.txt"):
+def savefromvector(vectors, filename="result.txt", bias=None, centerizing=True):
     try :
-        wf = open("result.txt", 'w')
+        wf = open(filename, 'w')
     except OSError as oe :
         print(oe.__str__())
         return None
-    veclist = vectors.getArrayBias()
-    for vec in veclist : wf.write(",".join(format(s, "f") for s in vec)+"\n")
+    mlist = [0, 0, 0, 0]
+    bias = bias*2
+    if centerizing :
+        mlist = [(bias[1][0]+bias[1][1])/2, (bias[0][0]+bias[0][1])/2, (bias[1][0]+bias[1][1])/2, (bias[0][0]+bias[0][1])/2]
+    for vec in vectors : wf.write(','.join([str((vec[i]-mlist[i])/abs(bias[i][0]-mlist[i])) for i in range(len(vec))])+'\n')
     wf.close()
+
+def savefromarraywithbias(array, filename="result.txt", bias=None, centerizing=True) :
+    if bias==None : raise(Exception("savefromarraywithbias : You didn't put bias information"))
+    try :
+        wf = open(filename, 'w')
+    except OSError as oe :
+        print(oe.__str__())
+        return None
+    mlist = [0, 0]
+    if centerizing :
+        mlist = [(bias[1][0]+bias[1][1])/2, (bias[0][0]+bias[0][1])/2]
+    for elmt in array : wf.write(','.join([str((elmt[i]-mlist[i])/abs(bias[i][0]-mlist[i])) for i in range(len(elmt))])+'\n')
+    wf.close()
+
