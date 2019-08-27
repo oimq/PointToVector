@@ -16,6 +16,10 @@ class CorNodeList:
     def getArray(self):
         return [(y(), x) for y in self.cnlist for x in y.getXList()]
 
+    # return to list [y, x, 0]
+    def getArray3D(self):
+        return [(y(), x, 0) for y in self.cnlist for x in y.getXList()]
+
     def getNodes(self):
         return self.cnlist
 

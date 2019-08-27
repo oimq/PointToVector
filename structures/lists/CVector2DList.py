@@ -8,8 +8,56 @@ class CVector2DList:
         self.veclist = list()
         self.grid = 1
 
-    def CorToVec(self, screen):
+    def show(self, screen, width, color):
+        # show!!!!!!!!!!!!!
+        for vec in self.veclist :
+            screen.drawline(vec[0], vec[1], vec[2], vec[3], width, color)
+        screen.update()
+
+    def CorToVecPath(self):
         print("\n------------- start convert to vector ------------\n")
+
+        # [ y, x ]
+        # get appropriated start point
+        cor = None
+        dir = [0, -1]
+        vecinx = 0
+        for i in range(len(self.corlist)):
+            cor = self.corlist[i]
+            if self.cornodelist.get_surround_num(cor[0], cor[1]) > 1:
+                # we select first coordi for start
+                cor = list(cor)
+                self.veclist.append(cor + cor)
+                break
+        dir = self.nextPath(self.veclist[vecinx][2:4], dir)
+        print("we start coordinates :", cor)
+        print("we start direction :", dir)
+
+        count = 2*len(self.corlist)-1
+        # on going algorithms
+        while True :
+            count -= 1
+            newdir = self.nextPath(self.veclist[vecinx][2:4], dir)
+            if newdir == dir:
+                self.veclist[vecinx][2] += newdir[0]
+                self.veclist[vecinx][3] += newdir[1]
+            else:
+                self.veclist.append(self.veclist[vecinx][2:4]*2)
+                vecinx += 1
+                self.veclist[vecinx][2] += newdir[0]
+                self.veclist[vecinx][3] += newdir[1]
+                dir = newdir
+
+            # stop condition
+            if count < 1 :
+                break
+
+        print("* Result     Vector Num :", len(self.veclist)) #", Vector List :", self.veclist)
+
+        print("\n------------- end convert to vector ------------\n")
+
+    def CorToVecMap(self):
+        print("\n------------- start convert to vector map ------------\n")
 
         # [ y, x ]
         # get appropriated start point
@@ -47,26 +95,16 @@ class CVector2DList:
             if self.veclist[vecinx][2:4] == cor :
                 break
 
-        # show!!!!!!!!!!!!!
-        for vec in self.veclist :
-            screen.drawline(vec[0], vec[1], vec[2], vec[3])
-        screen.update()
-
         print("* Result     Vector Num :", len(self.veclist)) #", Vector List :", self.veclist)
 
-        print("\n------------- end convert to vector ------------\n")
+        print("\n------------- end convert to vector map ------------\n")
 
     def nextPath(self, cur, nextdir):
-        #print("Receive Direction :", nextdir)
         nextdir = self.getfirstdir(nextdir[0], nextdir[1])
-        #print("First Direction :", nextdir)
         for i in range(3):
             if self.cornodelist.ishave(cur[0] + nextdir[0], cur[1] + nextdir[1]) :
-                #print([cur[0] + nextdir[0], cur[1] + nextdir[1]], "is there.")
                 return nextdir
             else:
-                #print("we can't found", [cur[0] + nextdir[0], cur[1] + nextdir[1]])
-                #print("we change direction", nextdir, "to", self.getnextdir(nextdir[0], nextdir[1]))
                 nextdir = self.getnextdir(nextdir[0], nextdir[1])
         #print("we don't found point to right go... so just random!")
         for i in range(r(0,3)) : nextdir = self.getnextdir(nextdir[0], nextdir[1])
@@ -93,7 +131,6 @@ class CVector2DList:
 
     def getArrayBias(self):
         arr = list(map(list, zip(*self.getArray())))
-        print(arr)
         barr = list()
         bias_list = list()
         for i in range(len(arr)) :

@@ -29,14 +29,15 @@ class Screen:
     def drawPoint(self, x, y, psize, color):
         self.points.append(self.canvas.create_oval(x, y, x + psize, y + psize, fill=color, outline=""))
 
-    def drawline(self, y1, x1, y2, x2):
+    def drawline(self, y1, x1, y2, x2, width, color):
         colours = ["black", "cyan", "magenta", "red", "blue", "gray", "yellow", "purple"]
         self.lines.append(self.canvas.create_line(
             (x1+abs(self.bias_list[0][1]))*self.scale_size,
             (y1+abs(self.bias_list[1][1]))*self.scale_size,
             (x2+abs(self.bias_list[0][1]))*self.scale_size,
             (y2+abs(self.bias_list[1][1]))*self.scale_size,
-            fill=(colours[r(0, 7)])))
+            width=width,
+            fill=color))
 
     def clear(self):
         while len(self.lines) > 0:
