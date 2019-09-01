@@ -76,12 +76,12 @@ screen = draw_map.Screen(_width= SCREEN_WIDTH, _height= SCREEN_HEIGHT,
 
 cvlist.CorToVecMap()
 print(cvlist.getArray())
-savefromvector(cvlist.getArray(), "vecmap", bias_list1)
+savefromvector(cvlist.getArray(), "vecmap", [bias_list1[1]]*2)
 cvlist.show(screen, 1, "black")
 
 palist.CorToVecPath()
 print(palist.getArray())
-savefromvector(cvlist.getArray(), "vecpath", bias_list1)
+savefromvector(palist.getArray(), "vecpath", [bias_list1[1]]*2)
 palist.show(screen, 10, "red")
 
 print("Total Drawing time :", (time.time() - start_draw_time) * 1000, "ms.")
