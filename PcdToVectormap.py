@@ -55,7 +55,7 @@ cvlist = CVector2DList(cor_points1)
 -- SAVE TO FILE
 # '''
 savefromarray(points1, "map-non.txt")
-savefromarraywithbias(cor_points1.getArray(), "map1.txt", bias_list1, isZero=True)
+savefromarraywithbias(cor_points1.getArray(), "map-bias.txt", bias_list1, isZero=True)
 # savefromarraywithbias(cor_points2.getArray(), "path1.txt", bias_list1, isZero=True)
 # savefromarray(cor_points2.getArray(), "path2.txt")
 '''
@@ -76,7 +76,7 @@ screen.draw_opt_points(cor_points1.getNodes(), POINT_SIZE, color="black")
 # screen.draw_opt_points(cor_points2.getNodes(), POINT_SIZE, color="red")
 
 cvlist.CorToVecMap()
-savefromvector(cvlist.getArray(), "vecmap", [bias_list1[1]]*2)
+savefromvector(cvlist.getArray(), "map-vec", [bias_list1[1]]*2)
 cvlist.show(screen, 1, "black")
 #
 # palist.CorToVecPath()
