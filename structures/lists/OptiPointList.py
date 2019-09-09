@@ -25,17 +25,15 @@ class OptiPointList:
                 for j in range(self.dimension):
                     self.points[i][j] = round(self.points[i][j], self.places)
                     self.points[i][self.dimension] = 0
-        self.debugging("End Rounding, first -> ")
-        print(self.points[0])
+        self.debugging("End Rounding")
 
     # Delete points that have same coordinates
     def delete_dups(self):
         self.debugging("Start delete_dups")
         tups = [tuple(point) for point in self.points]
-        self.debugging("We made a tuple for delete duplicates, length :"+str(len(tups)))
+        self.debugging("We made a tuple for delete duplicates, (length : "+str(len(tups))+")")
         self.points = list(dict.fromkeys(tups))
-        self.debugging("End delete_dups, length : "+str(len(tups)))
-        print(self.points[0])
+        self.debugging("End delete_dups")
 
     def getArray(self):
         return self.points

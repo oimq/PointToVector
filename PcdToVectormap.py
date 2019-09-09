@@ -49,7 +49,7 @@ save(get_ogm(cor_points), filename="path.txt")
 '''
 -- GETTING vectormap
 '''
-# cvlist = CVector2DList(cor_points1)
+cvlist = CVector2DList(cor_points1)
 # palist = CVector2DList(cor_points2)
 '''
 -- SAVE TO FILE
@@ -75,10 +75,9 @@ screen = draw_map.Screen(_width= SCREEN_WIDTH, _height= SCREEN_HEIGHT,
 screen.draw_opt_points(cor_points1.getNodes(), POINT_SIZE, color="black")
 # screen.draw_opt_points(cor_points2.getNodes(), POINT_SIZE, color="red")
 
-# cvlist.CorToVecMap()
-# print(cvlist.getArray())
-# savefromvector(cvlist.getArray(), "vecmap", [bias_list1[1]]*2)
-# cvlist.show(screen, 1, "black")
+cvlist.CorToVecMap()
+savefromvector(cvlist.getArray(), "vecmap", [bias_list1[1]]*2)
+cvlist.show(screen, 1, "black")
 #
 # palist.CorToVecPath()
 # print(palist.getArray())
